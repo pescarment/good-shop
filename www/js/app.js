@@ -9,7 +9,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
+
+  // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
@@ -17,6 +18,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     if (window.StatusBar) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
+
     }
   });
 })
@@ -37,47 +39,64 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
   })
 
   // Each tab has its own nav history stack:
-
-  .state('tab.dash', {
-    url: '/dash',
+	.state('tab.magazine', {
+    url: '/magazine',
     views: {
-      'tab-dash': {
-        templateUrl: 'templates/tab-dash.html',
-        controller: 'DashCtrl'
+      'tab-magazine': {
+        templateUrl: 'templates/tab-magazine.html',
+        controller: 'MagazineCtrl'
       }
     }
   })
 
-  .state('tab.chats', {
-      url: '/chats',
+  .state('tab.catalog', {
+      url: '/catalog',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/tab-chats.html',
-          controller: 'ChatsCtrl'
+        'tab-catalog': {
+          templateUrl: 'templates/tab-catalog.html',
+          controller: 'CatalogCtrl'
         }
       }
     })
-    .state('tab.chat-detail', {
-      url: '/chats/:chatId',
+	
+  .state('tab.scan', {
+      url: '/scan',
       views: {
-        'tab-chats': {
-          templateUrl: 'templates/chat-detail.html',
-          controller: 'ChatDetailCtrl'
+        'tab-scan': {
+          templateUrl: 'templates/tab-scan.html',
+          controller: 'ScanCtrl'
         }
       }
     })
 
-  .state('tab.account', {
-    url: '/account',
-    views: {
-      'tab-account': {
-        templateUrl: 'templates/tab-account.html',
-        controller: 'AccountCtrl'
+  .state('tab.dealers', {
+      url: '/dealers',
+      views: {
+        'tab-dealers': {
+          templateUrl: 'templates/tab-dealers.html',
+          controller: 'DealersCtrl'
+        }
       }
-    }
-  });
+    })
 
+	.state('tab.wallet', {
+      url: '/wallet',
+      views: {
+        'tab-wallet': {
+          templateUrl: 'templates/tab-wallet.html',
+          controller: 'WalletCtrl'
+        }
+      }
+    })
+	
+	.state('register', {
+    url: '/register',
+    templateUrl: 'templates/splash-register.html',
+    controller: 'RegisterCtrl'
+  })
+;
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/dash');
+  $urlRouterProvider.otherwise('/tab/magazine');
+  //$urlRouterProvider.otherwise('/');
 
 });
