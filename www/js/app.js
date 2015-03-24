@@ -94,7 +94,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     templateUrl: 'templates/splash-register.html',
     controller: 'RegisterCtrl'
   })
-;
+	.state('scan-modal', {
+    url: '/scan/modal',
+    templateUrl: 'templates/splash-scan.html',
+    controller: 'RegisterCtrl'
+  })
+
+  ;
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/magazine');
   //$urlRouterProvider.otherwise('/');
